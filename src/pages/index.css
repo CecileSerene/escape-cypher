@@ -1,0 +1,29 @@
+html {
+    margin: 0;
+}
+
+body {
+    margin: 0 20px 0 20px;
+    color: white;
+    background-color: black;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 19px;
+  }
+
+
+.tabs {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    /* padding-top: 200px; */
+}
+
+.tab {
+    display: inline;
+    color: orange;
+    cursor: pointer;
+}
+
+.active_tab {
+    border-bottom: 3px solid orange;
+}

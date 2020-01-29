@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Timer } from "./Countdown.style";
+import { Container, Timer, Button } from "./Countdown.style";
 
 class Countdown extends Component {
     state = {
         timerOn: false,
-        timerStart: 10000000,
-        timerTime: 100000000
+        timerStart: 1000*60*60,
+        timerTime: 1000*60*60
     };
 
     startTimer = () => {
@@ -46,36 +46,34 @@ class Countdown extends Component {
         const { timerTime, timerStart, timerOn } = this.state;
         let seconds = ("0" + (Math.floor((timerTime / 1000) % 60) % 60)).slice(-2);
         let minutes = ("0" + Math.floor((timerTime / 60000) % 60)).slice(-2);
-        let hours = ("0" + Math.floor((timerTime / 3600000) % 60)).slice(-2);
+        if (timerTime === 3600000) {
+            minutes = 60
+        }
         return (
-            <div>
+            <Container>
+                <div></div>
                 <Timer>
-                    {hours} : {minutes} : {seconds}
+                    {minutes} : {seconds}
                 </Timer>
                 {
                     timerOn === false &&
                     (timerStart === 0 || timerTime === timerStart) && (
-                        <button onClick={this.startTimer}>Start</button>
+                        <Button onClick={this.startTimer}>START</Button>
                     )
                 }
                 {
                     timerOn === true && timerTime >= 1000 && (
-                        <button onClick={this.stopTimer}>Stop</button>
+                        <Button onClick={this.stopTimer}>DONE</Button>
                     )
                 }
-                {
-                    timerOn === false &&
-                    (timerStart !== 0 && timerStart !== timerTime && timerTime !== 0) && (
-                        <button onClick={this.startTimer}>Resume</button>
-                    )
-                }
+
                 {
                     (timerOn === false || timerTime < 1000) &&
                     (timerStart !== timerTime && timerStart > 0) && (
-                        <button onClick={this.resetTimer}>Reset</button>
+                        <Button onClick={this.resetTimer}>RESET</Button>
                     )
                 }
-            </div>);
+            </Container>);
     }
 }
 export default Countdown;
