@@ -1,14 +1,26 @@
+:root {
+    --background-color:#121b1c;
+    --text-color: #7a8079;
+    --primary-accent: #23726f;
+    --secondary-accent: #254e4d;
+}
+
 html {
     margin: 0;
+    background-color: var(--background-color);
 }
 
 body {
     margin: 0 20px 0 20px;
-    color: white;
-    background-color: black;
+    color: var(--text-color);
+    background-color: var(--background-color);
     font-family: Verdana, Geneva, sans-serif;
     font-size: 19px;
   }
+
+.fullscreen-enabled {
+    background: var(--background-color);
+}
 
 
 .tabs {
@@ -20,10 +32,18 @@ body {
 
 .tab {
     display: inline;
-    color: orange;
+    color: var(--secondary-accent);
     cursor: pointer;
 }
 
+.tab:hover {
+    border-bottom: 3px solid var(--secondary-accent);
+}
+
 .active_tab {
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid var(--primary-accent);
+    color: var(--primary-accent);
+}
+.active_tab:hover {
+    border-bottom: 3px solid var(--primary-accent);
 }

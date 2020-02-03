@@ -12,7 +12,7 @@ class Locks extends Component {
                 <LockImage src={Lock1Image} alt="lock 1"/>
                 <Text>
                 Pour ouvrir ce cadenas directionnel, commencer par appuyer deux fois sur l'anneau, 
-                puis entrer la combinaison composée de direction dans l'ordre.
+                puis entrer la combinaison composée de directions dans l'ordre.
                 <br/>
                 La combinaison peut être de n'importe quelle longueur.
                 </Text>

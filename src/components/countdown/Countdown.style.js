@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLORS } from "../../constants/color";
 
 export const Container = styled.div`
     display: flex;
@@ -18,9 +19,9 @@ export const Timer = styled.div`
 `;
 
 export const Button = styled.button`
-    color: green;
+    color: ${COLORS.primaryAccent};
     font-size: 34px;
-    background-color: black;
+    background-color: ${COLORS.backgroundColor};
     border: none;
     align-self: center;
 `;
