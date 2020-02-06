@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
-import Sticky from 'react-sticky-el';
 import Fullscreen from "react-full-screen";
-
 import GlobalFonts from '../fonts/fonts';
 import Header from '../components/header/Header';
 import Polybe from '../components/tabs/Polybe';
@@ -26,19 +24,17 @@ class IndexPage extends Component {
  
   render() {
     return (
-      <div>
+      <div class="page">
         <GlobalFonts />
-        <button onClick={this.goFull}>
-          Go Fullscreen
-        </button>
 
         <Fullscreen
           enabled={this.state.isFull}
           onChange={isFull => this.setState({isFull})}
         >
-            <Sticky>
-              <Header></Header>
-          </Sticky>
+            <Header></Header>
+            <button onClick={this.goFull}>
+          Go Fullscreen
+        </button>
           <Tabs>
             <TabList className="tabs">
               <Tab className="tab" selectedClassName="active_tab">Chiffre de Polybe</Tab>
@@ -46,17 +42,19 @@ class IndexPage extends Component {
               <Tab className="tab" selectedClassName="active_tab">Cadenas</Tab>
             </TabList>
 
-            <TabPanel>
-              <Polybe></Polybe>
-            </TabPanel>
+            <div className="content">
+              <TabPanel>
+                <Polybe></Polybe>
+              </TabPanel>
 
-            <TabPanel>
-              <Playfair></Playfair>
-            </TabPanel>
+              <TabPanel>
+                <Playfair></Playfair>
+              </TabPanel>
 
-            <TabPanel>
-              <Locks></Locks>
-            </TabPanel>
+              <TabPanel>
+                <Locks></Locks>
+              </TabPanel>
+            </div>
           </Tabs>
       </Fullscreen>
       </div>

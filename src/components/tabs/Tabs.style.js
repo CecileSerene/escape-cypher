@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLORS } from "../../constants/color";
 
 export const Container = styled.div`
     display: flex;
@@ -13,7 +14,7 @@ export const Container = styled.div`
 export const Text = styled.p`
     width: auto;
     text-align: justify;
-    margin-right: 20px;
+    margin-right: 50px;
 `;
 
 export const Image = styled.img`
@@ -25,7 +26,7 @@ export const LockImage = styled.img`
 `;
 
 export const Color = styled.span`
-    color: ${props => props.color};
+    background-color: ${props => props.color};
 `;
 
 export const Subcontainer = styled.div`
@@ -37,3 +38,35 @@ export const Subcontainer = styled.div`
     align-content: center;
     width: 400px;
 `;
+export const Table = styled.table`
+    background-color: ${COLORS.backgroundColor};
+    width: 180px;
+    height: 180px;
+    border-spacing: 0;
+`;
+
+export const Cell = styled.td`
+    border: 1px solid ${COLORS.secondaryBackgroundColor};
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
+`;
+
+export const TitleCell = styled.td`
+    border: 1px solid ${COLORS.secondaryBackgroundColor};
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
+    background-color: ${props => props.color};
+    font-weight: bold;
+`;
+
+export const AccentCell = styled.td`
+    border: 1px solid ${COLORS.secondaryBackgroundColor};
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
+    background-color: ${props => props.color};
+`;
+
+

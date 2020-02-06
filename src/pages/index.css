@@ -1,13 +1,17 @@
 :root {
     --background-color:#121b1c;
+    --secondary-background-color:#122525;
+    --third-background-color:#0f2222;
     --text-color: #7a8079;
     --primary-accent: #23726f;
     --secondary-accent: #254e4d;
+    --second-counter: #453246;
 }
 
 html {
     margin: 0;
     background-color: var(--background-color);
+    height: 100%;
 }
 
 body {
@@ -16,34 +20,60 @@ body {
     background-color: var(--background-color);
     font-family: Verdana, Geneva, sans-serif;
     font-size: 19px;
+    height: 100%;
   }
+
+.page {
+    height: 100%;
+}
+
+#___gatsby {
+    height: 100%;
+}
+
+#gatsby-focus-wrapper {
+    height: 100%;
+}
+
+.fullscreen {
+    height: 100%;
+}
+
 
 .fullscreen-enabled {
     background: var(--background-color);
 }
 
-
 .tabs {
-    align-items: center;
+    align-items: left;
     display: flex;
-    justify-content: space-evenly;
-    /* padding-top: 200px; */
+    margin: 0;
+    padding: 140px 0 0 0;
 }
 
 .tab {
     display: inline;
     color: var(--secondary-accent);
     cursor: pointer;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--third-background-color);
 }
 
 .tab:hover {
-    border-bottom: 3px solid var(--secondary-accent);
+    color: var(--primary-accent);
 }
 
 .active_tab {
-    border-bottom: 3px solid var(--primary-accent);
     color: var(--primary-accent);
+    background-color: var(--secondary-background-color);
 }
+
 .active_tab:hover {
-    border-bottom: 3px solid var(--primary-accent);
+    background-color: var(--secondary-background-color);
+}
+
+.content {
+    background-color: var(--secondary-background-color);
+    height: 60%;
 }

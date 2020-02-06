@@ -8,4 +8,6 @@ export const HeaderStyle = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0;
+    position: fixed;
+    width: 100%;
 `;

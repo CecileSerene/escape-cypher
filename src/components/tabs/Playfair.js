@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Color, Container, Image, Text } from "./Tabs.style";
-import PlayfairImage from '../../images/playfair.png';
+import { AccentCell, Cell, Color, Container, Table, Text } from "./Tabs.style";
+import { COLORS } from "../../constants/color";
 
 class Playfair extends Component {
 
@@ -15,7 +15,7 @@ class Playfair extends Component {
                         <li>
                             si x et y sont sur la même ligne ou la même colonne, alors z=x et t est le symétrique de y par rapport à x dans la grille. 
                             <br/>
-                            Exemple : <Color color="red">MK = MO</Color>
+                            Exemple : <Color color={COLORS.firstCounter}>MK = MO</Color>
                         </li>
                         <li>
                             si x et y sont identiques, alors z=x et t=y
@@ -23,14 +23,48 @@ class Playfair extends Component {
                         <li>
                             sinon, x et y forment un rectangle. Alors z et t sont les deux lettres fermant le rectangle, avec z sur la même ligne que x et t sur la même ligne que y. 
                             <br/>
-                            Exemple : <Color color="green">GT = JQ</Color>, <Color color="green">QJ = TG</Color>.
+                            Exemple : <Color color={COLORS.secondCounter}>GT = JQ</Color>, <Color color={COLORS.secondCounter}>QJ = TG</Color>.
                         </li>
                         <li>
                             une lettre seule reste identique (mots de taille impair)
                         </li>
                     </ul>
                 </Text>
-                <Image src={PlayfairImage} alt="polybe grid"/>
+                
+                <Table>
+                    <tr>
+                        <Cell>A</Cell>
+                        <Cell>B</Cell>
+                        <Cell>C</Cell>
+                        <Cell>D</Cell>
+                        <Cell>E</Cell>
+                    </tr>
+                    <tr>
+                        <Cell>F</Cell>
+                        <AccentCell color={COLORS.secondCounter}>G</AccentCell>
+                        <Cell>H</Cell>
+                        <Cell>I</Cell>
+                        <AccentCell color={COLORS.secondCounter}>J</AccentCell>
+                    </tr><tr>
+                        <AccentCell color={COLORS.firstCounter}>K</AccentCell>
+                        <Cell>L</Cell>
+                        <AccentCell color={COLORS.firstCounter}>M</AccentCell>
+                        <Cell>N</Cell>
+                        <AccentCell color={COLORS.firstCounter}>O</AccentCell>
+                    </tr><tr>
+                        <Cell>P</Cell>
+                        <AccentCell color={COLORS.secondCounter}>Q</AccentCell>
+                        <Cell>R</Cell>
+                        <Cell>S</Cell>
+                        <AccentCell color={COLORS.secondCounter}>T</AccentCell>
+                    </tr><tr>
+                        <Cell>U</Cell>
+                        <Cell>V</Cell>
+                        <Cell>X</Cell>
+                        <Cell>Y</Cell>
+                        <Cell>Z</Cell>
+                    </tr>
+                </Table>
             </Container>
         )
     }
