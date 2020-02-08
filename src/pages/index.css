@@ -5,7 +5,7 @@
     --text-color: #7a8079;
     --primary-accent: #23726f;
     --secondary-accent: #254e4d;
-    --second-counter: #453246;
+    --second-counter: #620d66;
 }
 
 html {
@@ -39,16 +39,28 @@ body {
     height: 100%;
 }
 
+.fullscreen-button {
+    position: fixed;
+    z-index:5;
+}
+
 
 .fullscreen-enabled {
     background: var(--background-color);
+}
+
+.tabs-content {
+    display:flex;
+    height: 100%;
+    flex-direction: column;
+    margin: 0 30px 0 30px;
 }
 
 .tabs {
     align-items: left;
     display: flex;
     margin: 0;
-    padding: 140px 0 0 0;
+    padding: 150px 0 0 0;
 }
 
 .tab {
@@ -73,7 +85,12 @@ body {
     background-color: var(--secondary-background-color);
 }
 
+.react-tabs__tab-panel--selected {
+    height: 100%;
+}
+
 .content {
     background-color: var(--secondary-background-color);
-    height: 60%;
+    flex-grow: 1;
+    margin-bottom: 30px;
 }

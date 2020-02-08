@@ -16,17 +16,11 @@ class Countdown extends Component {
         });
         this.timer = setInterval(() => {
             const newTime = this.state.timerTime - 10;
-            if (newTime >= 0) {
                 this.setState({
                     timerTime: newTime
                 });
-            } else {
-                clearInterval(this.timer);
-                this.setState({ timerOn: false });
-            }
         }, 10);
     };
-
 
     stopTimer = () => {
         clearInterval(this.timer);
@@ -40,12 +34,10 @@ class Countdown extends Component {
         }
     };
 
-
-
     render() {
         const { timerTime, timerStart, timerOn } = this.state;
-        let seconds = ("0" + (Math.floor((timerTime / 1000) % 60) % 60)).slice(-2);
-        let minutes = ("0" + Math.floor((timerTime / 60000) % 60)).slice(-2);
+        let seconds = ("0" + Math.abs(Math.floor((timerTime / 1000) % 60) % 60)).slice(-2);
+        let minutes = ("0" + Math.abs(Math.floor((timerTime / 60000) % 60))).slice(-2);
         if (timerTime === 3600000) {
             minutes = 60
         }
@@ -53,7 +45,7 @@ class Countdown extends Component {
             <Container>
                 <div></div>
                 <Timer>
-                    {minutes} : {seconds}
+                    {timerTime <0 && "-"} {minutes} : {seconds}
                 </Timer>
                 {
                     timerOn === false &&
@@ -62,13 +54,13 @@ class Countdown extends Component {
                     )
                 }
                 {
-                    timerOn === true && timerTime >= 1000 && (
+                    timerOn === true && (
                         <Button onClick={this.stopTimer}>DONE</Button>
                     )
                 }
 
                 {
-                    (timerOn === false || timerTime < 1000) &&
+                    (timerOn === false) &&
                     (timerStart !== timerTime && timerStart > 0) && (
                         <Button onClick={this.resetTimer}>RESET</Button>
                     )

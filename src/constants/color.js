@@ -7,5 +7,5 @@ export const COLORS = {
     primaryAccent: "#23726f",
     secondaryAccent: "#254e4d",
     firstCounter: "#4C0827",
-    secondCounter: "#453246",
+    secondCounter: "#620d66",
 }

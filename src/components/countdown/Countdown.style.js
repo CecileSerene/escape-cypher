@@ -5,9 +5,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: center;
+    justify-content: space-around;
+    align-items: end;
+    align-content: end;
 `;
 
 

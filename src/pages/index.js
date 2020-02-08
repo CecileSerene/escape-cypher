@@ -27,15 +27,17 @@ class IndexPage extends Component {
       <div class="page">
         <GlobalFonts />
 
+        <button onClick={this.goFull} className="fullscreen-button">
+          Go Fullscreen
+        </button>
+
         <Fullscreen
           enabled={this.state.isFull}
           onChange={isFull => this.setState({isFull})}
         >
             <Header></Header>
-            <button onClick={this.goFull}>
-          Go Fullscreen
-        </button>
-          <Tabs>
+
+          <Tabs className="tabs-content">
             <TabList className="tabs">
               <Tab className="tab" selectedClassName="active_tab">Chiffre de Polybe</Tab>
               <Tab className="tab" selectedClassName="active_tab">Chiffre de Playfair</Tab>
@@ -43,15 +45,15 @@ class IndexPage extends Component {
             </TabList>
 
             <div className="content">
-              <TabPanel>
+              <TabPanel className="tab-panel">
                 <Polybe></Polybe>
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel className="tab-panel">
                 <Playfair></Playfair>
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel className="tab-panel">
                 <Locks></Locks>
               </TabPanel>
             </div>

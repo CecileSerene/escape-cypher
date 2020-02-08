@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { AccentCell, Cell, Color, Container, Table, Text, TitleCell } from "./Tabs.style";
+import { AccentCell, Cell, Color, PolybeContainer, Table, Text, TitleCell } from "./Tabs.style";
 import { COLORS } from "../../constants/color";
 
 class Polybe extends Component {
 
     render() {
         return (
-            <Container>
+            <PolybeContainer>
                 <Text>
                 Le chiffre de Polybe consiste à chiffrer chaque lettre du message par deux chiffres. 
                 Le premier chiffre correspond à la colonne, le second à la ligne.
@@ -18,7 +18,6 @@ class Polybe extends Component {
                 <br/>
                 Exemple : <Color color={COLORS.firstCounter}>312351 = CLE</Color>
                 </Text>
-                {/* <Image src={PolybeImage} alt="polybe grid"/> */}
 
                 <Table>
                     <tr>
@@ -67,7 +66,7 @@ class Polybe extends Component {
                         <Cell>Z</Cell>
                     </tr>
                 </Table>
-            </Container>
+            </PolybeContainer>
         )
     }
 }

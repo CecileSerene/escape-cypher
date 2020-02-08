@@ -5,7 +5,7 @@ export const HeaderStyle = styled.div`
     height: 150px;
     background-color: ${COLORS.backgroundColor};
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     margin: 0;
     position: fixed;
