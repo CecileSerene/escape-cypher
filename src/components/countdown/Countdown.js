@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Timer, Button } from "./Countdown.style";
+import Music from '../../sounds/background_music.mp3';
 
 class Countdown extends Component {
     state = {
@@ -8,7 +9,17 @@ class Countdown extends Component {
         timerTime: 1000*60*60
     };
 
+    playMusic = () => {
+        document.getElementById("music").load()
+        document.getElementById("music").play()
+    }
+
+    stopMusic = () => {
+        document.getElementById("music").pause()
+    }
+
     startTimer = () => {
+        this.playMusic()
         this.setState({
             timerOn: true,
             timerTime: this.state.timerTime,
@@ -25,6 +36,7 @@ class Countdown extends Component {
     stopTimer = () => {
         clearInterval(this.timer);
         this.setState({ timerOn: false });
+        this.stopMusic();
     };
     resetTimer = () => {
         if (this.state.timerOn === false) {
@@ -43,7 +55,11 @@ class Countdown extends Component {
         }
         return (
             <Container>
-                <div></div>
+                <div>
+                    <audio id="music">
+                        <source src={Music} type="audio/mpeg" preload="auto"/>
+                    </audio>
+                </div>
                 <Timer>
                     {timerTime <0 && "-"} {minutes} : {seconds}
                 </Timer>
