@@ -10,12 +10,12 @@ class Countdown extends Component {
     };
 
     playMusic = () => {
-        document.getElementById("music").load()
         document.getElementById("music").play()
     }
 
     stopMusic = () => {
         document.getElementById("music").pause()
+        document.getElementById("music").load()
     }
 
     startTimer = () => {
