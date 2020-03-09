@@ -10,9 +10,8 @@ import Music4 from '../../sounds/CookiesChef_part4_81_37.mp3';
 class Countdown extends Component {
     state = {
         timerOn: false,
-        timerStart: 1000*60*90,
-        timerTime: 1000*60*90,
-        currentMusic: 1
+        timerStart: 1000*(60*90 - 81*60),
+        timerTime: 1000*(60*90 - 81*60),
     };
 
     playMusic = (i) => {
