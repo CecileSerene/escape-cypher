@@ -10,8 +10,9 @@ import Music4 from '../../sounds/CookiesChef_part4_81_37.mp3';
 class Countdown extends Component {
     state = {
         timerOn: false,
-        timerStart: 1000*(60*90 - 81*60),
-        timerTime: 1000*(60*90 - 81*60),
+        timerStart: 60*90,
+        timerDate: null,
+        stupid: 0
     };
 
     playMusic = (i) => {
@@ -31,19 +32,23 @@ class Countdown extends Component {
         document.getElementById("losing").play()
     }
 
+    stopLoser = () => {
+        document.getElementById("losing").pause()
+        document.getElementById("losing").load()
+    }
+
     startTimer = () => {
-        this.playMusic(1)
+        this.playMusic(1);
         this.setState({
             timerOn: true,
-            timerTime: this.state.timerTime,
-            timerStart: this.state.timerTime
+            timerDate: new Date()
         });
         this.timer = setInterval(() => {
-            const newTime = this.state.timerTime - 10;
+            const stupid = 1 - this.state.stupid;
                 this.setState({
-                    timerTime: newTime
+                    stupid: stupid
                 });
-        }, 10);
+        }, 50);
     };
 
     stopTimer = () => {
@@ -58,32 +63,42 @@ class Countdown extends Component {
     resetTimer = () => {
         if (this.state.timerOn === false) {
             this.setState({
-                timerTime: this.state.timerStart,
-                currentMusic: 1
+                timerDate: null
+
             });
+            this.playMusic(1);
+            this.playMusic(2);
+            this.playMusic(3);
+            this.playMusic(4);
+            this.playLoser();
+            this.stopMusic(1);
+            this.stopMusic(2);
+            this.stopMusic(3);
+            this.stopMusic(4);
+            this.stopLoser();
         }
     };
 
     render() {
-        const { timerTime, timerStart, timerOn } = this.state;
-        let seconds = ("0" + Math.abs(Math.floor((timerTime / 1000) % 60) % 60)).slice(-2);
-        let minutes = ("0" + Math.abs(Math.floor((timerTime / 60000) % 90))).slice(-2);
-        if (timerTime === 1000*60*90) {
-            minutes = 90
-        }
-        if (timerTime === 1000*(60*90 - 28*60 - 25)) {
+        const { timerDate, timerStart, timerOn } = this.state;
+        let curDate = new Date();
+        let timerTime = timerDate ? timerStart - (curDate.getTime() - timerDate.getTime())/1000 : timerStart;
+        let seconds = ("0" + Math.abs(Math.floor((timerTime) % 60) % 60)).slice(-2);
+        let minutes = ("0" + Math.abs(Math.floor(Math.abs(timerTime / 60)) % 91)).slice(-2);
+
+        if (Math.floor(timerTime) === (60*90 - 28*60 - 25)) {
             this.stopMusic(1)
             this.playMusic(2)
         }
-        if (timerTime === 1000*(60*90 - 50*60 - 5)) {
+        if (Math.floor(timerTime) === (60*90 - 50*60 - 5)) {
             this.stopMusic(2)
             this.playMusic(3)
         }
-        if (timerTime === 1000*(60*90 - 81*60 - 37)) {
+        if (Math.floor(timerTime) === (60*90 - 81*60 - 37)) {
             this.stopMusic(3)
             this.playMusic(4)
         }
-        if (timerTime === 0) {
+        if (Math.floor(timerTime) === 0) {
             this.playLoser()
         }
         
@@ -114,7 +129,7 @@ class Countdown extends Component {
                 </Timer>
                 {
                     timerOn === false &&
-                    (timerStart === 0 || timerTime === timerStart) && (
+                    (timerStart === 0 || timerDate === null) && (
                         <Button onClick={this.startTimer}>START</Button>
                     )
                 }
