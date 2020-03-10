@@ -135,14 +135,14 @@ class Countdown extends Component {
                 }
                 {
                     timerOn === true && (
-                        <Button onClick={this.stopTimer}>DONE</Button>
+                        <Button onClick={this.stopTimer}>ESCAPE !</Button>
                     )
                 }
 
                 {
                     (timerOn === false) &&
                     (timerStart !== timerTime && timerStart > 0) && (
-                        <Button onClick={this.resetTimer}>RESET</Button>
+                        <Button onClick={this.resetTimer}>COOKIES !</Button>
                     )
                 }
             </Container>);
